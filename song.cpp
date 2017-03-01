@@ -27,6 +27,9 @@ Song::~Song(){
 }
 
 Song::Song(const Song& other){
+	title = new char[100];
+	artist = new char[100];
+
 	strcpy(title, other.title);
 	strcpy(artist, other.artist);
 }
@@ -53,4 +56,10 @@ ostream& operator<<(ostream& os, const Song& s){
 	return os;
 }
 
+void Song::setTitle(char t[]){
+	strcpy(title, t);
+}
 
+void Song::setArtist(char a[]){
+	strcpy(artist, a);
+}
