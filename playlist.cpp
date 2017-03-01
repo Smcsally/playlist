@@ -54,6 +54,7 @@ void Playlist::addAtStart(Song song) {
     // make the node
     Node* node = new Node;
     node->s = song;
+	cout << node->s << endl;
     node->prev = NULL;
 
     // if head is NULL, it's the ONLY one
@@ -61,10 +62,12 @@ void Playlist::addAtStart(Song song) {
         head = node;
         tail = node;
         node->next = NULL;
+		cout << "added to beginning of list";
     } else {
         node->next = head;
         head->prev = node;
         head = node;
+		cout << "added to beginning";
     }
 }
 
@@ -73,6 +76,7 @@ void Playlist::addAtEnd(Song song) {
     // make the node
     Node* node = new Node;
     node->s = song;
+	//cout << node->s << endl;
     node->next = NULL;
 
     // if tail is NULL, it's the ONLY one
@@ -80,10 +84,12 @@ void Playlist::addAtEnd(Song song) {
         head = node;
         tail = node;
         node->prev = NULL;
+		//cout << "added to end of list";
     } else {
         node->prev = tail;
         tail->next = node;
         tail = node;
+		//cout << "added to end of list";
     }
 }
 
@@ -144,8 +150,8 @@ void Playlist::printForward() const {
         // move onto the next one
         current = current->next;
     }
-
-    cout << endl << endl;
+	
+    cout << endl;
 }
 
 // print the list Backward
@@ -165,6 +171,19 @@ void Playlist::printBackward() const {
     cout << endl << endl;
 }
 
+int Playlist::count() {
+	Node* current = head;
+	int count = 0;
+
+	while (current != NULL) {
+		// increment count
+		count++;
+
+		// move onto the next one
+		current = current->next;
+	}
+	return count;
+}
 bool Playlist::isEmpty(){
 	if(head == NULL){
 		return true;

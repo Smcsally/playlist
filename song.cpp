@@ -2,42 +2,34 @@
 
 #include <iostream>
 #include <cstring>
+#include <atlstr.h>
 #include "song.h"
 
 using namespace std;
 
 //make a song with no name and title
 Song::Song(){
-	title = new char[100];
-	artist = new char[100];
+	strcpy(title, "0");
+	strcpy(artist, "0");
 }
 
 //make a song with a title and artist
-Song::Song(char t[], char a[]){
-	title = new char[strlen(t)];
-	artist = new char[strlen(a)];
+Song::Song(char t[100], char a[100]){
 	strcpy(title, t);
 	strcpy(artist, a);
 }
 
 //delete the list
-Song::~Song(){
+/*Song::~Song(){
 	delete [] title;
 	delete [] artist;
-}
+}*/
 
 Song::Song(const Song& other){
-	title = new char[100];
-	artist = new char[100];
-
 	strcpy(title, other.title);
 	strcpy(artist, other.artist);
 }
-/*overload = operator
-  Song::Song& operator=(const Song& other){
-  strcpy(this.title, other.getTitle());
-  strcpy(this.artist, other.getArtist());
-  }*/
+
 
 //overload == operator
 bool operator==(const Song& a, const Song& b){
@@ -49,17 +41,17 @@ bool operator==(const Song& a, const Song& b){
 	}
 }
 
-//overload >> operator
-ostream& operator<<(ostream& os, const Song& s){
+//overload << operator
+ostream& operator<<(ostream& os, const Song& s) {
 	os << s.title << " - " << s.artist;
 
 	return os;
 }
 
-void Song::setTitle(char t[]){
+void Song::setTitle(char t[100]){
 	strcpy(title, t);
 }
 
-void Song::setArtist(char a[]){
+void Song::setArtist(char a[100]){
 	strcpy(artist, a);
 }

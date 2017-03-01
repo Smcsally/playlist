@@ -31,12 +31,15 @@ class Playlist {
         // print the list Backward
         void printBackward() const;
 
+		//get the number of songs in the playlist
+		int count();
+
 	   bool isEmpty();
 
     private:
         struct Node {
             Song s;
-		  Node* next;
+			Node* next;
             Node* prev;
         };
 
