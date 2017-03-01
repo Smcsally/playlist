@@ -29,7 +29,6 @@ class Song {
         void setArtist(char a[]);
 
 
-
     private:
 	   char* title;
 	   char* artist;

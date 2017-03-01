@@ -165,4 +165,11 @@ void Playlist::printBackward() const {
     cout << endl << endl;
 }
 
-
+bool Playlist::isEmpty(){
+	if(head == NULL){
+		return true;
+	}
+	else{
+		return false;
+	}
+}

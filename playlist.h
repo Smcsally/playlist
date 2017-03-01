@@ -31,6 +31,7 @@ class Playlist {
         // print the list Backward
         void printBackward() const;
 
+	   bool isEmpty();
 
     private:
         struct Node {

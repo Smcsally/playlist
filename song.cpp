@@ -27,18 +27,18 @@ Song::~Song(){
 }
 
 Song::Song(const Song& other){
-	strcpy(this->title, other.getTitle());
-	strcpy(this.artist, other.getArtist());
+	strcpy(title, other.title);
+	strcpy(artist, other.artist);
 }
 /*overload = operator
-Song::Song& operator=(const Song& other){
-	strcpy(this.title, other.getTitle());
-	strcpy(this.artist, other.getArtist());
-}*/
+  Song::Song& operator=(const Song& other){
+  strcpy(this.title, other.getTitle());
+  strcpy(this.artist, other.getArtist());
+  }*/
 
 //overload == operator
-Song::bool operator==(const Song& a, const Song& b){
-	if(strcmp(a.getTitle(),b.getTitle()) == 0 && strcmp(a.getArtist(), b.getArtist()) == 0){
+bool operator==(const Song& a, const Song& b){
+	if(strcmp(a.title,b.title) == 0 && strcmp(a.artist, b.artist) == 0){
 		return true;
 	}
 	else{
@@ -47,8 +47,10 @@ Song::bool operator==(const Song& a, const Song& b){
 }
 
 //overload >> operator
-Song::ostream& operator<<(ostream& os, const Song& s){
-	os << s.getTitle() << " - " << s.getArtist();
+ostream& operator<<(ostream& os, const Song& s){
+	os << s.title << " - " << s.artist;
 
 	return os;
 }
+
+
