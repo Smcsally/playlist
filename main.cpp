@@ -12,12 +12,6 @@ int main(){
 	char user_input [15];
 	char title [50];
 	char artist [50]; 
-	char quit [] = "quit";
-	char add [] = "add";
-	char remove [] = "remove";
-	char count [] = "count";
-	char play [] = "play";
-	char shuffle [] = "shuffle";
 
 	//interface
 	cout << "** Playlist Manager! **" << endl;
@@ -30,12 +24,13 @@ int main(){
 	cout << "quit" << endl;
 	cout << endl;
 
-	while(strcmp(user_input, quit) != 0){
+	//main controlling loop
+	while(strcmp(user_input, "quit") != 0){
 		cout << ": ";
 		cin >> user_input;
 		cin.ignore();
 
-		if(strcmp(user_input, add) == 0){
+		if(strcmp(user_input, "add") == 0){
 			Song temp;
 			cout << "Enter Title: ";
 			cin.getline(title, 100);
@@ -47,10 +42,10 @@ int main(){
 			//cout << "Temp: " << temp << endl;
 				list.addAtEnd(temp);
 		}
-		else if(strcmp(user_input, play) == 0){
+		else if(strcmp(user_input, "play") == 0){
 			list.printForward();
 		}
-		else if (strcmp(user_input, remove) == 0) {
+		else if (strcmp(user_input, "remove") == 0) {
 			Song temp;
 			cout << "Enter Title: ";
 			cin.getline(title, 100);
@@ -64,6 +59,9 @@ int main(){
 		else if (strcmp(user_input, "count") == 0) {
 			cout << list.count();
 			cout << endl;
+		}
+		else if (strcmp(user_input, "shuffle") == 0) {
+
 		}
 		else{
 
