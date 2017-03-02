@@ -61,7 +61,7 @@ int main(){
 			cout << endl;
 		}
 		else if (strcmp(user_input, "shuffle") == 0) {
-
+			Playlist::shuffle(list);
 		}
 		else{
 

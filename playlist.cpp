@@ -184,11 +184,38 @@ int Playlist::count() {
 	}
 	return count;
 }
-bool Playlist::isEmpty(){
-	if(head == NULL){
-		return true;
+
+void Playlist::shuffle(Playlist& other) {
+	int count = other.count();
+	int tester = other.count();
+	int c = 0;
+	int rnum = rand() % count;
+	Playlist temp;
+	Node* current;
+
+	//randomly place nodes from old list into temp list
+	for (int i = 0; i < tester; i++) {
+		current = other.head;
+		while (current != NULL) {
+			if (c != rnum) {
+				current = current->next;
+				c++;
+			}
+			else {
+				temp.addAtEnd(current->s);
+				other.remove(current->s);
+				break;
+			}
+		}
+		c = 0;
+		count--;
+		if (count != 0) {
+			rnum = rand() % count;
+		}
+		
 	}
-	else{
-		return false;
-	}
+		
+	
+	//change old list to shuffled list
+	other = temp;
 }

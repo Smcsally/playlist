@@ -34,7 +34,8 @@ class Playlist {
 		//get the number of songs in the playlist
 		int count();
 
-	   bool isEmpty();
+		//shuffle the list
+		static void shuffle(Playlist& other);
 
     private:
         struct Node {
